@@ -1,0 +1,43 @@
+# config.yml
+data:
+  file: "data/returns.csv"
+  max_na: 0.30
+
+window:
+  length: 504
+  step: 21
+
+community:
+  k_peripheral: 3     # still “k” but now generic
+  pick_mode   : random # 'peripheral' | 'central' | 'random'
+  jaccard_tol : 0.9
+
+
+output:
+  root: "results"
+
+portfolio:
+  lambda: 5.0   # risk‑aversion, 0 => GMV, ~5 Sharpe‑max, >10 aggressive
+  max_w : 0.10  # per‑stock cap
+
+# # config.yml
+# data:
+#   file: "data/returns.csv"
+#   max_na: 0.30
+
+# window:
+#   length: 252
+#   step: 21
+
+# community:
+#   k_peripheral: 3     # still “k” but now generic
+#   pick_mode   : random # 'peripheral' | 'central' | 'random'
+#   jaccard_tol : 0.8
+
+
+# output:
+#   root: "results"
+
+# portfolio:
+#   lambda: 5.0   # risk‑aversion, 0 => GMV, ~5 Sharpe‑max, >10 aggressive
+#   max_w : 0.10  # per‑stock cap
