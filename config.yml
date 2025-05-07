@@ -1,26 +1,24 @@
 data:
   file: "data/returns.csv"
   max_na: 0.30
-  start_date: "2015-01-01"   
-  end_date: "2024-12-31"     
+  start_date: "2015-01-01"
+  end_date: "2024-12-31"
 
 window:
-  length: 252
-  step: 21
-
+  length: 252       # Rolling window length (e.g., 1 year of trading days)
+  step: 21          # Rebalancing frequency (e.g., monthly)
 
 community:
-  k_peripheral: 5
-  pick_mode: peripheral #'peripheral' | 'central' | 'random'
-  jaccard_tol : 0.8
+  k_peripheral: 5   # Number of representatives per community
+  pick_mode: peripheral  # Options: 'peripheral' | 'central' | 'random'
+  jaccard_tol: 0.8   # Similarity threshold to trigger rebalancing
 
 output:
-  root: "results"
+  root: "results"   # Output folder for storing logs and portfolios
 
 portfolio:
-  lambda: 5.0   # risk‑aversion, 0 => GMV, ~5 Sharpe‑max, >10 aggressive
-  max_w : 0.10  # per‑stock cap
-
+  lambda: 5.0       # Risk aversion (0 = GMV, ~5 = Sharpe-max)
+  max_w: 0.10       # Max weight per stock
 
 
 # window:
