@@ -256,3 +256,16 @@ def mean_layer_per_cluster(
     for node, cid in partition.items():
         comm_layers.setdefault(cid, []).append(layers[node])
     return {cid: float(np.mean(v)) for cid, v in comm_layers.items()}
+
+def overlap(a: set, b: set) -> float:
+    """
+    Compute the normalized overlap between two sets.
+
+    Args:
+        a (set): First set.
+        b (set): Second set.
+
+    Returns:
+        float: Overlap score ∈ [0, 1], defined as intersection / min(|a|, |b|).
+    """
+    return len(a & b) / max(1, min(len(a), len(b)))

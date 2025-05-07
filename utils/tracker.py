@@ -3,20 +3,7 @@
 from collections import defaultdict
 from typing import Dict, Set, Tuple, List
 import numpy as np
-
-
-def overlap(a: set, b: set) -> float:
-    """
-    Compute the normalized overlap between two sets.
-
-    Args:
-        a (set): First set.
-        b (set): Second set.
-
-    Returns:
-        float: Overlap score ∈ [0, 1], defined as intersection / min(|a|, |b|).
-    """
-    return len(a & b) / max(1, min(len(a), len(b)))
+from community_tools import overlap 
 
 
 class CommunityTracker:
