@@ -1,6 +1,15 @@
 # Network Analysis and Community Detection for Portfolio Optimization
 
 This repository presents a dynamic, network-based approach to portfolio construction that leverages **community detection on financial correlation networks** . By identifying latent structures in asset co-movements, the strategy aims to improve diversification, reduce turnover, and enhance interpretability in portfolio design.
+<br>
+
+<p align="center">
+  <img src="https://github.com/SoniaBorsi/Financial-Network-Analysis/blob/4e054d904d2a31dfe6ea590abdae4736f686c746/results/MST.png?raw=true" width="512"/>  
+</p>
+<p align="center">
+  <sub><em>Minimum Spanning Tree of SP500 stocks. </em></sub>
+</p>
+
 
 ## Table of Contents:
 
