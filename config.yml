@@ -1,17 +1,18 @@
-# config.yml
 data:
   file: "data/returns.csv"
   max_na: 0.30
+  start_date: "2015-01-01"   
+  end_date: "2024-12-31"     
 
 window:
-  length: 504
+  length: 252
   step: 21
 
-community:
-  k_peripheral: 3     # still “k” but now generic
-  pick_mode   : random # 'peripheral' | 'central' | 'random'
-  jaccard_tol : 0.9
 
+community:
+  k_peripheral: 5
+  pick_mode: peripheral #'peripheral' | 'central' | 'random'
+  jaccard_tol : 0.8
 
 output:
   root: "results"
@@ -20,24 +21,80 @@ portfolio:
   lambda: 5.0   # risk‑aversion, 0 => GMV, ~5 Sharpe‑max, >10 aggressive
   max_w : 0.10  # per‑stock cap
 
-# # config.yml
-# data:
-#   file: "data/returns.csv"
-#   max_na: 0.30
+
+
+# window:
+#   length: 252
+#   step: 60
+# ──── Summary ─────────────────────────────────────
+# Community  | AnnRet  15.53%  | AnnVol  2.02%  | Sharpe 7.68
+# Eq‑same    | AnnRet  12.85%  | AnnVol  1.39%  | Sharpe 9.23
+# Full‑MVP   | AnnRet  11.52%  | AnnVol  2.41%  | Sharpe 4.79
+# 2025-05-05 17:47:58,693 │ INFO │ Final cumulative returns:
+#   Community : 657.69% | Eq‑same : 445.94% | Full‑MVP : 360.76%
+# Annualised metrics:
+#   Community : Ret 15.53% | Vol 2.02% | Sharpe 7.68
+#   Eq‑same   : Ret 12.85% | Vol 1.39% | Sharpe 9.23
+#   Full‑MVP  : Ret 11.52% | Vol 2.41% | Sharpe 4.79
+
+
+
+#   start_date: "2017-01-01"   
+#   end_date: "2024-12-31"     
 
 # window:
 #   length: 252
 #   step: 21
 
-# community:
-#   k_peripheral: 3     # still “k” but now generic
-#   pick_mode   : random # 'peripheral' | 'central' | 'random'
-#   jaccard_tol : 0.8
+# ──── Summary ─────────────────────────────────────
+# Community  | AnnRet  16.02%  | AnnVol  4.95%  | Sharpe 3.23
+# Eq‑same    | AnnRet  11.80%  | AnnVol  3.46%  | Sharpe 3.41
+# Full‑MVP   | AnnRet  13.62%  | AnnVol  5.35%  | Sharpe 2.55
+# 2025-05-06 14:17:50,220 │ INFO │ Final cumulative returns:
+#   Community : 180.54% | Eq‑same : 117.37% | Full‑MVP : 142.07%
+# Annualised metrics:
+#   Community : Ret 16.02% | Vol 4.95% | Sharpe 3.23
+#   Eq‑same   : Ret 11.80% | Vol 3.46% | Sharpe 3.41
+#   Full‑MVP  : Ret 13.62% | Vol 5.35% | Sharpe 2.55
 
 
-# output:
-#   root: "results"
 
-# portfolio:
-#   lambda: 5.0   # risk‑aversion, 0 => GMV, ~5 Sharpe‑max, >10 aggressive
-#   max_w : 0.10  # per‑stock cap
+#   start_date: "2017-01-01"   
+#   end_date: "2024-12-31"     
+
+# window:
+#   length: 252
+#   step: 120
+# ──── Summary ─────────────────────────────────────
+# Community  | AnnRet  16.13%  | AnnVol  1.83%  | Sharpe 8.82
+# Eq‑same    | AnnRet  12.47%  | AnnVol  1.21%  | Sharpe 10.28
+# Full‑MVP   | AnnRet  13.84%  | AnnVol  1.90%  | Sharpe 7.30
+# 2025-05-06 15:08:09,008 │ INFO │ Final cumulative returns:
+#   Community : 190.66% | Eq‑same : 131.31% | Full‑MVP : 152.11%
+# Annualised metrics:
+#   Community : Ret 16.13% | Vol 1.83% | Sharpe 8.82
+#   Eq‑same   : Ret 12.47% | Vol 1.21% | Sharpe 10.28
+#   Full‑MVP  : Ret 13.84% | Vol 1.90% | Sharpe 7.30
+
+
+
+
+
+
+#   start_date: "2015-01-01"   
+#   end_date: "2024-12-31"     
+
+# window:
+#   length: 252
+#   step: 21
+
+# ──── Summary ─────────────────────────────────────
+# Community  | AnnRet  14.25%  | AnnVol  4.53%  | Sharpe 3.14
+# Eq‑same    | AnnRet  12.89%  | AnnVol  3.21%  | Sharpe 4.01
+# Full‑MVP   | AnnRet  13.73%  | AnnVol  4.91%  | Sharpe 2.80
+# 2025-05-06 15:34:22,007 │ INFO │ Final cumulative returns:
+#   Community : 228.53% | Eq‑same : 196.32% | Full‑MVP : 214.81%
+# Annualised metrics:
+#   Community : Ret 14.25% | Vol 4.53% | Sharpe 3.14
+#   Eq‑same   : Ret 12.89% | Vol 3.21% | Sharpe 4.01
+#   Full‑MVP  : Ret 13.73% | Vol 4.91% | Sharpe 2.80

@@ -1,21 +1,25 @@
 import json, logging, random
 from collections import defaultdict
 from pathlib import Path
-from typing   import Dict, Set, DefaultDict
+from typing import Dict, Set, DefaultDict
+import random
 
 import numpy as np
 import pandas as pd
 import tqdm
 import yaml
 
-from data      import get_returns
-from utils     import correlation_matrix, distance_matrix, mst_from_distance, metrics
-from community_tools import (
+from utils.data import get_returns
+from utils.utils import correlation_matrix, distance_matrix, mst_from_distance, metrics
+from utils.community_tools import (
     louvain_partition, select_nodes,
     markowitz_meanvar, markowitz_meanvar_full,
     plot_partition, save_partition,
 )
-from tracker   import CommunityTracker
+
+
+from utils.tracker import CommunityTracker
+
 
 # ───────── configuration & folders ──────────────────────────────────────
 logging.basicConfig(level=logging.INFO,
@@ -27,7 +31,12 @@ OUT_ROOT = Path(CFG["output"]["root"]); OUT_ROOT.mkdir(parents=True, exist_ok=Tr
 OUT_COMM = OUT_ROOT / "communities";   OUT_COMM.mkdir(exist_ok=True)
 
 # data & rolling‑window parameters
-returns = get_returns(Path(CFG["data"]["file"]))
+data_cfg = CFG["data"]
+returns = get_returns(
+    csv_path=Path(data_cfg["file"]),
+    start_date=data_cfg.get("start_date"),
+    end_date=data_cfg.get("end_date")
+)
 L, H    = CFG["window"]["length"], CFG["window"]["step"]
 
 # community / selection params
@@ -93,6 +102,7 @@ for end in tqdm.tqdm(range(L, len(returns), H), desc="rolling windows"):
 
     w_eq   = pd.Series(1 / len(assets_comm), index=assets_comm)
     w_full = markowitz_meanvar_full(win, lam=LAM, max_w=MAX_W)
+    
 
     fwd = returns.loc[date:].iloc[1:H+1]
     def port_ret(w):
