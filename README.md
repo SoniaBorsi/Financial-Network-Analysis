@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ```
 
-Or run individual components for analysis:
+Run the main script:
 
 ```
 python3 main.py
