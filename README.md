@@ -1,4 +1,4 @@
-# Network Analysis and Community Detection for Portfolio Optimization
+# Community-Aware Portfolio Optimization in Evolving Financial Networks
 
 This repository presents a dynamic, network-based approach to portfolio construction that leverages **community detection on financial correlation networks** . By identifying latent structures in asset co-movements, the strategy aims to improve diversification, reduce turnover, and enhance interpretability in portfolio design.
 <br>
